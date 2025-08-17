@@ -8,16 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showDetailScreen = false
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+
+                Text("Hello, world!")
+
+                Button("Click me") {
+                    showDetailScreen = true
+                }
+
+                // Hidden navigation link
+                NavigationLink(
+                    destination: DetailScreen(),
+                    isActive: $showDetailScreen
+                ) {
+                    EmptyView()
+                }
+                .hidden()
+            }
+            .padding()
         }
-        .padding()
     }
 }
+
 
 #Preview {
     ContentView()
