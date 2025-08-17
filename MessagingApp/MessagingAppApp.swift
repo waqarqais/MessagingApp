@@ -12,6 +12,8 @@ struct MessagingAppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            //MARK:
+            // added source control
         }
     }
 }
